@@ -42,11 +42,6 @@ services:
       - laravel
     networks:
       - app-network
-    command: >
-      sh -c "
-        npm install --silent;
-        npm run dev
-      "
 
   db:
     image: mysql:8.0

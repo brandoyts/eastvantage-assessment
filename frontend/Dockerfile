@@ -1,19 +1,12 @@
-
-FROM node:20-alpine AS builder
+FROM node:20-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm ci --silent
+RUN npm install --silent
 
 COPY . .
-
-FROM node:20-alpine AS runtime
-
-WORKDIR /app
-
-COPY --from=builder /app /app
 
 EXPOSE 3000
 
