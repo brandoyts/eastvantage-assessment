@@ -68,10 +68,20 @@ services:
     networks:
       - app-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 1s
-      timeout: 1s
-      retries: 3
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-u",
+          "laravel",
+          "-psecret",
+        ]
+      interval: 5s
+      timeout: 3s
+      retries: 5
 
 networks:
   app-network:
