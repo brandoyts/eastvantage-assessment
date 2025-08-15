@@ -1,8 +1,3 @@
-# Fullstack Developer Assessment – Laravel + Next.js
-
-This repository contains a **fullstack application** built as part of a programming assessment.  
-It includes a **Laravel backend** (with MySQL) and a **Next.js frontend**. Users can have multiple roles, and roles are dynamically fetched from the API. Frontend uses **TypeScript** and **ShadCN UI components**.
-
 ## 🎯 Objectives
 
 - Build a fullstack application using **Laravel** and **React / Next.js**.
