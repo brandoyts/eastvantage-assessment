@@ -11,7 +11,7 @@
 
 ### ⚡ Notes
 
-- **React Version Choice:** Requirement mentioned React 17, but React 17 is deprecated. Using **Next.js** provides routing, SSR, and modern optimizations.
+- **React Version Choice:** Requirement mentioned React 17, but React 17 is deprecated. Using **Next.js** provides routing, and modern optimizations.
 
 - **Architecture:** Laravel repositories and services, with global exception handling.
 
