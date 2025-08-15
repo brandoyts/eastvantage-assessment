@@ -15,12 +15,14 @@ services:
       DB_DATABASE: laravel
       DB_USERNAME: laravel
       DB_PASSWORD: secret
-      command: >
-        sh -c "if [ ! -f .env ]; then cp .env.example .env; fi &&
-              composer install &&
-              php artisan key:generate &&
-              php artisan migrate:fresh --seed &&
-              php artisan serve --host=0.0.0.0 --port=8000"
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        [ ! -f .env ] && cp .env.example .env && echo ".env file copied successfully"
+        composer install
+        php artisan key:generate
+        php artisan migrate:fresh --seed
+        php artisan serve --host=0.0.0.0 --port=8000
     volumes:
       - ./backend:/var/www/html
     ports:
@@ -61,7 +63,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - db_data:/var/lib/mysql
+      - app_mysql_data:/var/lib/mysql
     networks:
       - app-network
 
@@ -70,4 +72,4 @@ networks:
     driver: bridge
 
 volumes:
-  db_data:
+  app_mysql_data:
