@@ -23,21 +23,6 @@ services:
       - db
     networks:
       - app-network
-    command: >
-      sh -c "
-        # Install dependencies if vendor folder missing
-        [ ! -d vendor ] && composer install;
-
-        # Copy .env if missing and generate app key
-        [ ! -f .env ] && cp .env.example .env;
-        php artisan key:generate;
-
-        # Run migrations and seed database
-        php artisan migrate:fresh --seed;
-
-        # Start Laravel server
-        php artisan serve --host=0.0.0.0 --port=8000
-      "
 
   nextjs:
     build:
